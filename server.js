@@ -46,13 +46,18 @@ async function verificarConexion(){
 }
 /*Usuarios*/
 
+
+app.get("/api", function(req,res){
+    res.send("Hola mundo")
+})
+
 app.get("/usuarios", async function(req, res){
     const usuariosActivos = await Usuario.findAll({
         where:{
             estado:true
         }
     });
-    res.status(200).json(usuariosActivos);
+    res.status(200).send("ADIÓS");
 });
 
 app.get("/usuarios/:id", async function(req, res){
